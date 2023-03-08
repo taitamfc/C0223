@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- Thông qua sự kiện -->
+    <button onclick=" alert('hi 1') " >Click 1</button>
+
+    <!-- Thông qua khối lệnh -->
+    <button onclick=" xu_ly() " > Click 2  </button>
+
+    <!-- Thông qua javascript -->
+    <button id="btn"> Click 3 </button>
+
+
+    <script>
+        // Tim phan tu co id la btn
+        /*
+        document.getElementById('ID_PHAN_TU').addEventListener('TEN_SU_KIEN',function(){
+            alert('click 3');
+        });
+        */
+        document.getElementById('btn').addEventListener('click',function(){
+            alert('click 3');
+        });
+
+        // Khai báo khối lệnh
+        function xu_ly(){
+            // Ma xu ly
+            alert('hi 2');
+        }
+    </script>
+
+
+
+</body>
+</html>
