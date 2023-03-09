@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    Ho va ten <input type="text" id="ten" value=""> <br>
+    Mat khau: <input type="password" name="" id="mk" value=""> <br>
+    <input type="button" value="Đăng nhập" id="dn">
+    <script>
+        // bat su kien nut dang nhap khi click
+        document.getElementById('dn').addEventListener('click',function(){
+            // lấy giá trị trong ô input có id là ten
+            var ten = document.getElementById('ten').value; 
+
+            // lấy giá trị trong ô input có id là mk
+            var mk = document.getElementById('mk').value; 
+
+            // xuất ra
+            alert( ten )
+            alert( mk )
+        });
+        
+        var name = prompt('Vui long nhap ten');
+        alert( name );
+
+    </script>
+</body>
+</html>

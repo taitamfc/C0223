@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    So A: <input type="number" name="" id="so_a"> <br>
+    So B: <input type="number" name="" id="so_b"> <br>
+    <input type="button" value="Tinh" id="btn" onclick=" xu_ly() ">
+
+    <script>
+        // khai bao khoi lenh
+        function xu_ly(){
+            // Lay gia tri o input co id:so_a
+            var a = document.getElementById('so_a').value;//'5'
+            // Lay gia tri o input co id:so_b
+            var b = document.getElementById('so_b').value;
+
+            // Chuyen doi kieu du lieu
+            // a = parseInt(a);//5 => 5
+            // b = parseInt(b);//6 => 6
+
+            // Kiem tra kieu du lieu
+            console.log( typeof a );
+            console.log( typeof b );
+
+            var c = a + b;//56
+
+            alert(c)
+        }
+
+    </script>
+</body>
+</html>
