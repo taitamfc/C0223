@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <img 
+            id="myImage" 
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" 
+            style=""
+            width="30%"
+        />
+        <p>Click button below to move the image to right</p>
+        <input type="button" onclick="xu_ly();" value="Click Me" />
+    </form>
+
+    <script>
+        let imgObj = null;
+        imgObj = document.getElementById('myImage');
+        imgObj.style.position = 'relative';
+        imgObj.style.left = '0px';
+
+        //Tạo khối moveRight()
+        function xu_ly(){
+            imgObj = document.getElementById('myImage');
+            // Lấy giá trị left cũ:
+            let left = imgObj.style.left;//'0px'
+            left = parseInt(left);//0
+
+            // Thay đổi giá trị
+            imgObj.style.left = left + 10 + 'px';
+        }
+        
+
+
+    </script>
+</body>
+</html>

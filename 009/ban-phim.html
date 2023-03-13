@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img 
+        id="myImage" 
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" 
+        style=""
+        width="30%"
+    />
+    <p>Click button below to move the image to right</p>
+    <script>
+        let imgObj = null;
+        imgObj = document.getElementById('myImage');
+        imgObj.style.position = 'relative';
+        imgObj.style.left = '0px';
+        imgObj.style.top = '0px';
+        var left = 0;
+
+        window.addEventListener('keydown',function(e){
+            console.log(e.key);
+            /*
+            ArrowUp
+            ArrowRight
+            ArrowDown
+            ArrowLeft
+            */
+            switch (e.key) {
+                case 'ArrowUp':
+                    // Lấy giá trị left cũ:
+                    var top = imgObj.style.top;//'0px'
+                    top = parseInt(top);//0
+
+                    // Thay đổi giá trị
+                    imgObj.style.top = top - 10 + 'px';
+                    break;
+                    break;
+                case 'ArrowRight':
+                    // Lấy giá trị left cũ:
+                    left = imgObj.style.left;//'0px'
+                    left = parseInt(left);//0
+
+                    // Thay đổi giá trị
+                    imgObj.style.left = left + 10 + 'px';
+                    break;
+                case 'ArrowDown':
+                    // Lấy giá trị left cũ:
+                    var top = imgObj.style.top;//'0px'
+                    top = parseInt(top);//0
+
+                    // Thay đổi giá trị
+                    imgObj.style.top = top + 10 + 'px';
+                    break;
+                case 'ArrowLeft':
+                    // Lấy giá trị left cũ:
+                    left = imgObj.style.left;//'0px'
+                    left = parseInt(left);//0
+
+                    // Thay đổi giá trị
+                    imgObj.style.left = left - 10 + 'px';
+                    break;
+            
+                default:
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
