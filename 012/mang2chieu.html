@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // khai bao mang hop_1 gom Toan Ly Hoa
+        var hop_1 = ["toan", "ly", "hoa"];
+
+        // khai bao mang hop_2 gom Van Su Dia
+        var hop_2 = ["van", "su", "dia"];
+        var tusach = [
+            ["toan", "ly", "hoa"], //0
+            //  0      1    2 
+            ["van", "su", "dia"]   //1
+            //  0     1     2
+        ];
+
+        // truy xuat phan tu trong mang
+        // lay phan tu ly
+        console.log(tusach[0][1]);
+        // lay phan tu dia
+        console.log(tusach[1][2]);
+
+        // Thay doi gia tri phan tu trong mang
+        // ly => vat ly
+        tusach[0][1] = "vat ly"
+
+        // dia => dia ly
+        tusach[1][2] = "dia ly"
+
+        // Them sinh vao sau Hoa
+        tusach[0].push("sinh")
+
+        // Them anh vao sau dia
+        // tusach[1].push("anh")
+        // // in ra do dai cua tung mang
+        // console.log(tusach[0].length);
+        // console.log(tusach[1].length);
+
+        // duyet mang
+        // console.log(tusach[0][0]);
+        // console.log(tusach[0][1]);
+        // console.log(tusach[0][2]);
+
+        // console.log(tusach[1][0]);
+        // console.log(tusach[1][1]);
+        // console.log(tusach[1][2]);
+
+        for (let h = 0; h < tusach.length; h++) {
+            for (let c = 0; c < tusach[h].length; c++) {
+                console.log(tusach[h][c])
+            }
+        }
+
+
+
+        // console.log(tusach);
+
+    </script>
+
+</body>
+
+</html>
