@@ -1,0 +1,40 @@
+<script>
+    function Human( ts_ten,ts_tuoi ){
+        // Khai bao thuoc tinh
+        this.ten = ts_ten;
+        this.tuoi = ts_tuoi;
+        // KHai bao phuong thuc
+        this.chayxe = function(){
+            // goi thuoc tinh ben trong doi tuong
+            console.log(this.ten + ' chay xe vi vu');
+            // Goi pt ben trong doi tuong
+            this.dibo();
+        }
+        this.dibo = function(){
+            console.log('di bo');
+        }
+    }
+
+    let cuong = new Human('Khuong',23);
+    console.log(cuong);
+
+    cuong.ten = 'Cuong';
+    cuong.tuoi = 18;
+    console.log(cuong);
+
+    
+    // cuong.chayxe();
+    // cuong.dibo();
+
+
+
+    // let khuong = new Human();
+    // khuong.ten = 'Khuong';
+    // khuong.tuoi = 17;
+    // let phi = new Human();
+    // let hieu = new Human();
+    // console.log(cuong);
+    // console.log(khuong);
+    // console.log(phi);
+    // console.log(hieu);
+</script>

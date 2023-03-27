@@ -1,0 +1,34 @@
+<script>
+
+    let books = ['Van','Su','Dia'];
+                // 0    1     2
+
+    console.log( books[0] );
+    // gan cho pt
+    books[0] = 'Van Hoc';
+
+    let khuong = {
+        ten: 'Khuong',
+        tuoi: 18,
+        chayxe: function(){
+            // goi thuoc tinh ben trong doi tuong
+            console.log(this.ten + ' chay xe vi vu');
+            // Goi pt ben trong doi tuong
+            this.dibo();
+        },
+        dibo: function(){
+            console.log('di bo');
+        }
+    }
+    // Gan gia tri tt
+    khuong.ten = 'Van Khuong';
+    khuong.tuoi = 23;
+
+    // Truy cap thuoc tinh
+    console.log( khuong.ten );
+    console.log( khuong.tuoi );
+
+    // Truy cap phuong thuc
+    khuong.chayxe();
+    khuong.dibo();
+</script>

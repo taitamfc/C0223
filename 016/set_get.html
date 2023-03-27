@@ -1,0 +1,42 @@
+<script>
+
+    // function Circle( r, color ){
+    //     this.radius = r;
+    //     this.color = color;
+
+    //     this.getArea = function(){
+    //         return this.radius * this.radius * 3.14;
+    //     }
+    // }
+
+
+
+    // let hinh1 = new Circle( 20, 'red' );
+    // console.log(hinh1.getArea());
+
+
+    function Human( ts_ten,ts_tuoi ){
+        // Khai bao thuoc tinh
+        this.ten = ts_ten;
+        this.tuoi = ts_tuoi;
+        // KHai bao phuong thuc setter: thiet lap gia tri thuoc tinh
+        this.setTen = function(ts_ten){
+            this.ten = ts_ten;
+        }
+        this.setTuoi = function(ts_tuoi){
+            this.tuoi = ts_tuoi;
+        }
+        // Khai bao phuong thuc getter: tra ve gia tri thuoc tinh:
+        this.getTen = function(){
+            return this.ten;
+        }
+        this.getTuoi = function(){
+            return this.tuoi;
+        }
+    }
+    let cuong = new Human('Khuong',18);
+    cuong.setTen('Cuong');
+    cuong.setTuoi(19);
+    console.log( cuong.getTen() );
+    console.log( cuong.getTuoi() );
+</script>
