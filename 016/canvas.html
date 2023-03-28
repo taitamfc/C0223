@@ -1,0 +1,26 @@
+<canvas id="myCanvas" width="200" height="100"></canvas>
+
+<script>
+    var c = document.getElementById('myCanvas');
+    var ctx = c.getContext("2d");
+
+    // ve duong thang
+        //diem bat dau
+        ctx.moveTo(10,20);
+        // diem ket thuc
+        ctx.lineTo(50,50);
+        // ve
+        ctx.stroke();
+
+
+    // ve hinh chu nhat
+    ctx.fillStyle='red';
+    ctx.fillRect(50, 50, 200, 100);
+
+    // ve hinh tron
+    ctx.beginPath();
+    // arc(x, y, r, start, stop) 
+    ctx.arc(95,50,40,0,2*Math.PI);
+    ctx.stroke();
+
+</script>

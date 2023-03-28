@@ -1,0 +1,103 @@
+<script>
+    let Mobile = function () {
+        // khai bao thuoc tinh
+        this.pin = 0;
+        this.soanvanban = "";
+        this.hopthuden = [];
+        this.hopthudi = [];
+        this.trangthai = false
+        // khai bao phuong thuc
+        this.kt_trangthai = function () {
+            if (this.trangthai == true) {
+                console.log("Dang bat");
+            } else {
+                console.log("Dang tat");
+            }
+        }
+        this.bat = function () {
+            this.trangthai = true
+        }
+        this.tat = function () {
+            this.trangthai = false
+        }
+        this.xac = function () {
+            if (this.pin <= 100) {
+                this.pin++;
+            } else {
+                console.log("Dien thoai da day pin");
+            }
+        }
+        this.soantinnhan = function (noidung) {
+            if (this.trangthai == false) {
+                console.log("Dien thoai dang tat");
+                return false
+            }
+            this.pin--
+            this.soanvanban = noidung
+        }
+        this.nhantinnhan = function (noidung) {
+            if (this.trangthai == false) {
+                console.log("Dien thoai dang tat");
+                return false
+            }
+            this.pin--
+            this.hopthuden.push(noidung)
+        }
+        this.guitinnhan = function (Mobile) {
+            if (this.trangthai == false) {
+                console.log("Dien thoai dang tat");
+                return false
+            }
+            Mobile.nhantinnhan(this.soanvanban)
+            this.hopthudi.push(this.soanvanban)
+
+            this.soanvanban = "";
+
+            this.pin--
+        }
+        this.xemtndagui = function () {
+            if (this.trangthai == false) {
+                console.log("Dien thoai dang tat");
+                return false
+            }
+            this.pin--
+            console.log(this.hopthudi);
+        }
+        this.xemtndanhan = function () {
+            if (this.trangthai == false) {
+                console.log("Dien thoai dang tat");
+                return false
+            }
+            this.pin--
+            console.log(this.hopthuden);
+        }
+    }
+
+    let samsung = new Mobile();
+    for(i=1;i<=100;i++){
+        samsung.xac()
+    }
+    samsung.bat()
+    
+
+    let nokia = new Mobile();
+    // xac pin 
+    for(let i =1;i<=100;i++){
+        nokia.xac()
+    }
+    // bat dien thoai
+    nokia.bat()
+    // soan tin nhan
+    nokia.soantinnhan("xin chao")
+    // nokia gui tin nhan
+    nokia.guitinnhan(samsung)
+    
+    console.log(nokia);
+    console.log(samsung);
+
+
+
+
+
+
+</script>
