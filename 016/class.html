@@ -1,0 +1,42 @@
+<script>
+    function Circle( r, color ){
+        //
+        this.radius = r;
+        this.color = color;
+
+        this.getArea = function(){
+            return this.radius * this.radius * 3.14;
+        }
+    }
+    let hinh1 = new Circle( 20, 'red' );
+    console.log(hinh1.getArea());
+
+    // class
+
+    class Circle {
+        // constructor(){
+        //     this.radius = 0;
+        //     this.color = '';
+        // }
+        constructor(r, color){
+            //ham tao, dung de gan gia tri thuoc tinh khi khoi tao doi tuong
+            this.radius = r;
+            this.color = color;
+        }
+
+        getArea(){
+            return this.radius * this.radius * 3.14;
+        }
+
+        setRadius(ts_radius){
+            this.radius = ts_radius;
+        }
+        getRadius(){
+            return this.radius;
+        }
+    }
+    let hinh2 = new Circle( 20, 'red' );
+    console.log(hinh2.getArea());
+
+
+</script>
