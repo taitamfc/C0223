@@ -15,7 +15,7 @@
 
     //Kiem tra nguoi dung da gui du lieu len
     if( $_SERVER['REQUEST_METHOD'] == 'POST'){
-        
+
         echo '<pre>';
         print_r( $_REQUEST );
         echo '</pre>';
@@ -23,6 +23,17 @@
         echo '<br>'. $_REQUEST['username'];
         echo '<br>'. $_REQUEST['email'];
         echo '<br>'. $_REQUEST['password'];
+
+        $username   = $_REQUEST['username'];
+        $email      = $_REQUEST['email'];
+        $password   = $_REQUEST['password'];
+
+        if( $username == 'admin' && $password == '123' ){
+            echo 'Chao mung admin';
+        }else{
+            echo 'Tai khoan khong ton tai';
+        }
+        
     }
 
 ?>
