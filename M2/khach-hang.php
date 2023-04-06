@@ -15,7 +15,6 @@
         'mot' => 'Su',
         'hai' => 'Dia',
     ];
-
     foreach( $books as $key => $value ){
         //khong,mot,hai
         //Van,Su,Dia
@@ -36,6 +35,8 @@
 
             //$k: 'gia'
             //$book: 12000
+
+            echo '<br>'. $k .' - '.$book;
         }
     }
 
