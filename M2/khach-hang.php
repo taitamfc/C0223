@@ -40,9 +40,12 @@
         }
     }
 
-    echo $tusach['mot']['ten'];
-    echo $tusach['mot']['gia'];
-    echo $tusach['hai']['gia'];
-    echo '<pre>';
-    print_r($tusach);
-    echo '</pre>';
+    foreach( $tusach as $book ){
+        /*
+        $book = [
+            'ten' => 'Van Hoc',
+            'gia' => 12000
+        ]
+        */
+        echo $book['ten'] .' - '.$book['gia'];
+    }
