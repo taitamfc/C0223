@@ -6,10 +6,31 @@
         ],
         'hai' => [
             'ten' => 'Su Hoc',
-            'gia' => 12000
+            'gia' => 15000
         ]
     ];
 
-    // echo '<pre>';
+    $books = [
+        'khong' => 'Van',
+        'mot' => 'Su',
+        'hai' => 'Dia',
+    ];
+
+    foreach( $books as $key => $value ){
+        //khong,mot,hai
+        //Van,Su,Dia
+        echo '<br>'. $key .' - '.$value;
+    }
+
+
+
+    foreach( $tusach as $key => $value ){
+
+    }
+
+    echo $tusach['mot']['ten'];
+    echo $tusach['mot']['gia'];
+    echo $tusach['hai']['gia'];
+    echo '<pre>';
     print_r($tusach);
-    // echo '</pre>';
+    echo '</pre>';
