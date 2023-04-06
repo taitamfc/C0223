@@ -21,11 +21,22 @@
         //Van,Su,Dia
         echo '<br>'. $key .' - '.$value;
     }
+    foreach( $tusach as $key => $books ){
+        // $key: 'mot'
+        /*
+            $books = [
+                'ten' => 'Van Hoc',
+                'gia' => 12000
+            ]
+        */
 
+        foreach( $books as $k => $book ){
+            //$k: 'ten'
+            //$book: 'Van Hoc'
 
-
-    foreach( $tusach as $key => $value ){
-
+            //$k: 'gia'
+            //$book: 12000
+        }
     }
 
     echo $tusach['mot']['ten'];
