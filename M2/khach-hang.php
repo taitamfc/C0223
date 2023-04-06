@@ -20,23 +20,23 @@
         //Van,Su,Dia
         echo '<br>'. $key .' - '.$value;
     }
-    foreach( $tusach as $key => $books ){
+    foreach( $tusach as $key => $book ){
         // $key: 'mot'
         /*
-            $books = [
+            $book = [
                 'ten' => 'Van Hoc',
                 'gia' => 12000
             ]
         */
 
-        foreach( $books as $k => $book ){
+        foreach( $book as $k => $v ){
             //$k: 'ten'
             //$book: 'Van Hoc'
 
             //$k: 'gia'
             //$book: 12000
 
-            echo '<br>'. $k .' - '.$book;
+            echo '<br>'. $k .' - '.$v;
         }
     }
 
