@@ -15,9 +15,11 @@
 
     //Kiem tra nguoi dung da gui du lieu len
     if( $_SERVER['REQUEST_METHOD'] == 'POST'){
+        
         echo '<pre>';
         print_r( $_REQUEST );
         echo '</pre>';
+
         echo '<br>'. $_REQUEST['username'];
         echo '<br>'. $_REQUEST['email'];
         echo '<br>'. $_REQUEST['password'];
