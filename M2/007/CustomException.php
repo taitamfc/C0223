@@ -22,16 +22,19 @@ $duong = 'dep';
 $thoi_tiet = 'xau';
 try {
     if( $duong == 'xau' ){
-        throw new CustomException("Đi vòng");
+        throw new CustomException("Đi vòng"); //Phi ném - Hiếu bắt
     }
     if( $thoi_tiet == 'xau' ){
-        throw new Exception("Ở nhà");
+        throw new Exception("Ở nhà"); //Cường ném - Long bắt
     }
     echo 'Di thang';
-} catch (CustomException $e) {
-    echo 'Đường: '. $e->errorMessage();
-} catch (Exception $e) {
-    echo  'Thời tiết: '. $e->getMessage();
-} finally {
+} 
+catch (CustomException $e) { //Hiếu bắt
+    echo 'Hiếu: '. $e->errorMessage();
+} 
+catch (Exception $e) { //Long bắt
+    echo  'Long: '. $e->getMessage();
+} 
+finally {
     echo '<br> Finally: Ve nha';
 }
