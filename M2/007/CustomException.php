@@ -11,21 +11,27 @@ class CustomException extends Exception
         */
 
         $error = '';
-        $error .= '<br> Lỗi xuất hiện tại file: '.$this->getFile();
-        $error .= '<br> Lỗi xuất hiện tại dòng: '.$this->getLine();
-        $error .= '<br> Nội dung: '.$this->getMessage();
+        $error = $error . '<br> Lỗi xuất hiện tại file: '.$this->getFile();
+        $error = $error . '<br> Lỗi xuất hiện tại dòng: '.$this->getLine();
+        $error = $error . '<br> Nội dung: '.$this->getMessage();
         return $error;
     }
 }
 
-$duong = 'xau';
+$duong = 'dep';
+$thoi_tiet = 'xau';
 try {
     if( $duong == 'xau' ){
-        throw new CustomException("Di vong");
+        throw new CustomException("Đi vòng");
+    }
+    if( $thoi_tiet == 'xau' ){
+        throw new Exception("Ở nhà");
     }
     echo 'Di thang';
 } catch (CustomException $e) {
-    echo $e->errorMessage();
+    echo 'Đường: '. $e->errorMessage();
+} catch (Exception $e) {
+    echo  'Thời tiết: '. $e->getMessage();
 } finally {
-    echo 'Ve nha';
+    echo '<br> Finally: Ve nha';
 }
