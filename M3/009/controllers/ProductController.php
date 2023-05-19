@@ -4,9 +4,10 @@ class ProductController {
     // Hien thi danh sach records => table
     public function index(){
         $items = Product::all();
-        echo '<pre>';
-        print_r($items);
-        die();
+
+        // Truyen data xuong view
+        require_once 'views/products/index.php';
+       
     }
     // Hien thi form them moi
     public function create(){
