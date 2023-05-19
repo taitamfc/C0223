@@ -1,4 +1,5 @@
 <?php
+require_once 'models/Product.php';
 class ProductController {
     // Hien thi danh sach records => table
     public function index(){
