@@ -31,6 +31,7 @@ echo '<br>'.__FILE__;
         <td><?php echo $r['GIAHANG'];?> </td>
         <td>
             <a href="index.php?action=edit&id=<?php echo $r['MAHANG'];?>">Sua</a> |  
+            <a href="index.php?action=show&id=<?php echo $r['MAHANG'];?>">Xem</a> |  
             <a onclick=" return confirm('Are you sure ?'); " href="index.php?action=destroy&id=<?php echo $r['MAHANG'];?>">Xoa</a> 
         </td>
     </tr>
