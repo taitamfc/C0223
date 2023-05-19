@@ -1,3 +1,3 @@
 <?php
-
-// Tiếp nhận
+// Controller Tiếp nhận
+require_once 'controllers/ProductController.php';
