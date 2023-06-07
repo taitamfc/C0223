@@ -12,7 +12,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        echo __METHOD__;
+        $users = ['Khuong','Phi','Hieu','Long'];
+        return view('admin.users.index',compact('users'));
     }
 
     /**
