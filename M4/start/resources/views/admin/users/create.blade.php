@@ -1,6 +1,4 @@
-<h1>Khuong's Page</h1>
-
-<form method="post" action="{{ route('postKhuong') }}">
+<form method="post" action="{{ route('users.store') }}">
     @csrf
     username: <input type="text" name="username" id=""> <br>
     password: <input type="password" name="password" id=""> <br>

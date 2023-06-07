@@ -13,9 +13,10 @@ class UserController extends Controller
         return view('users.index', compact(['items']));
     }
     public function store(Request $request){
-        // echo '<pre>';
-        // print_r($_REQUEST);
-        // echo '</pre>';
+        echo '<pre>';
+        print_r($_REQUEST);
+        echo '</pre>';
+        die();
 
 
         // $username = $_REQUEST['username'];

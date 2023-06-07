@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+// Admin
+use App\Http\Controllers\Admin\UserController;
+
+// Web
+use App\Http\Controllers\Web\HomeController;
+use App\Http\Controllers\Web\UserController as WebUserController;
+use Illuminate\Http\Request; //$_REQUEST
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +19,49 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+// Admin
+Route::group([
+    'prefix' => 'users'
+],function(){
+    Route::get('/',[UserController::class,'index'])->name('users.index');
+    Route::get('create',[UserController::class,'create'])->name('users.create');
+    Route::post('/',[UserController::class,'store'])->name('users.store');
+    Route::get('/{id}',[UserController::class,'show'])->name('users.show');
+    Route::get('/{id}/edit',[UserController::class,'edit'])->name('users.edit');
+    Route::put('/{id}',[UserController::class,'update'])->name('users.update');
+    Route::delete('/{id}',[UserController::class,'destroy'])->name('users.destroy');
 });
 
-Route::get('/khuong',[UserController::class,'index']);
-Route::post('/xulyKhuong',[UserController::class,'store']);
+// Route::resource('users',UserController::class);
+
+
+// Web
+Route::get('/', HomeController::class);
+Route::get('login', [WebUserController::class,'login']);
+Route::get('danhmuc/{name}', function () {
+    return 'Trang danh sach may tinh';
+});
+Route::get('sanpham/{name}', function () {
+    return 'Trang danh sach may tinh';
+});
+Route::get('giohang', function(){
+    return 'day la gio hang';
+});
+Route::post('xulygiohang', function(){
+    return 'day la gio hang';
+});
+Route::get('lienhe', function(){
+    return 'day la lien he';
+});
+Route::post('xulylienhe', function(){
+    return 'day la lien he';
+});
+Route::get('thanhtoan', function(){
+    return 'day la thanh toan';
+});
+Route::post('xulythanhtoan', function(){
+    return 'day la thanh toan';
+});
+
+
