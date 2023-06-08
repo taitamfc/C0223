@@ -35,6 +35,7 @@ class CheckView
 
         // Thay doi du lieu
         $response = $next($request);
+        // Lay du lieu cu
         $data = $response->original->getData();
         $data['name'] = 'NVB';
         return response()->view('admin', $data);
