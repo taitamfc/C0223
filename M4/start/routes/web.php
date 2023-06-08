@@ -64,4 +64,16 @@ Route::post('xulythanhtoan', function(){
     return 'day la thanh toan';
 });
 
+Route::get('link-18', function(){
+    echo 'day la noi dung 18';
+})->middleware('checkAge');
 
+Route::get('home', function(){
+    echo 'trang chu';
+})->name('home');
+
+
+Route::get('admin', function(){
+    $name = 'NVA';
+    return view('admin',compact('name'));
+})->middleware('CheckView');
