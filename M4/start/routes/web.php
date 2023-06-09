@@ -37,7 +37,7 @@ Route::group([
 
 
 // Web
-Route::get('/', HomeController::class);
+// Route::get('/', HomeController::class);
 Route::get('login', [WebUserController::class,'login']);
 Route::get('danhmuc/{name}', function () {
     return 'Trang danh sach may tinh';
@@ -77,3 +77,11 @@ Route::get('admin', function(){
     $name = 'NVA';
     return view('admin',compact('name'));
 })->middleware('CheckView');
+
+Route::get('/',function(){
+    return view('admin.layouts.master');
+});
+
+Route::get('/dang-nhap',function(){
+    return view('admin.layouts.blank');
+});

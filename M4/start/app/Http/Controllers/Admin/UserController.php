@@ -12,8 +12,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = ['Khuong','Phi','Hieu','Long'];
-        return view('admin.users.index',compact('users'));
+        $age    = 18;
+        $users  = ['Khuong','Phi','Hieu','Long'];
+        $param =[
+            'age' => $age,
+            'users' => $users
+        ];
+        // return view('admin.users.index',compact(['users','age','name']));
+        // return view('admin.users.index')->with('users',$users)
+        // ->with('age',$age)->with('name',$name);
+        return view('admin.users.index',$param);
+        
     }
 
     /**
@@ -21,7 +30,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        $name   = 'NVA';
+        return view('admin.users.create',compact('name'));
     }
 
     /**
