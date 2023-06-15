@@ -8,6 +8,14 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\UserController as WebUserController;
 use Illuminate\Http\Request; //$_REQUEST
+// Query builder
+use Illuminate\Support\Facades\DB;
+
+use App\Models\User;
+use App\Models\Order;
+
+use App\Models\Product;
+use App\Models\Room;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,4 +92,109 @@ Route::get('/',function(){
 
 Route::get('/dang-nhap',function(){
     return view('admin.layouts.blank');
+});
+
+Route::get('products-bk',function(){
+    // $items  = Product::all();
+    // $item   = Product::find(1);
+    // $items  = Product::where('price','=',20)
+    // ->where('id','=',1)
+    // ->get();
+    // // ->first();
+
+    // dd($items);
+
+    // Them moi
+    // $product = new Product();
+    // $product->name = 'Iphone 15';
+    // $product->price = 20;
+    // $product->description = 'mo ta';
+    // $product->image = 'image';
+    // $product->user_id  = 1;
+    // $product->save();
+
+    // Cap nhat
+    // $product = Product::find(1);
+    // $product->name = 'Iphone 16';
+    // $product->price = 20;
+    // $product->description = 'mo ta';
+    // $product->image = 'image';
+    // $product->user_id  = 1;
+    // $product->save();
+
+    // Phan trang
+    // $items = Product::where('price','=',10)->paginate(10);
+
+    // Create
+    // $data = [
+    //     'name' => 'Iphone 17',
+    //     'price' => 26,
+    //     'description' => 'mo ta',
+    //     'image' => 'image',
+    //     'user_id' => 1,
+    // ];
+    // $saved = Product::create($data);
+    dd($saved);
+
+});
+
+Route::get('products',function(){
+
+    // $items = DB::table('products')->get();
+    $item  = DB::table('products')->find(1);
+    $item  = DB::table('products')->where('price','=',20)
+    ->where('id','=',1)
+    ->get();
+    // ->first();
+
+    // Them moi
+    // $data = [
+    //     'name' => 'Iphone',
+    //     'price' => 20,
+    //     'description' => 'mo ta',
+    //     'image' => 'abc',
+    //     'user_id' => 1
+    // ];
+    // DB::table('products')->insert($data);
+    
+    //where( column,operator,value )
+    //where(column,value) column = value
+    
+
+    // $data = [
+    //     'name' => 'Iphone',
+    //     'price' => 20
+    // ];
+    // DB::table('products')
+    //     ->where('id', 1)
+    //     ->update($data);
+
+    // Phan trang
+    // $items = DB::table('products')->paginate(10);
+
+    dd($saved);
+
+});
+
+Route::get('get_orders/{user_id}',function( $user_id ){
+    $user = User::find($user_id); //SELECT * FROM `users` WHERE id = 1;
+    $orders = $user->orders; //SELECT * FROM `orders` WHERE user_id = 1;
+
+    $user = DB::table('users')->where('id',$user_id)->first();
+    $orders = DB::table('orders')->where('user_id',$user_id)->get();
+
+    dd($orders->toArray());
+});
+
+Route::get('get_order_room/{order_id}',function( $order_id ){
+    $order = Order::find(1);
+    $user = $order->user;
+    $rooms = $order->rooms;
+    dd($user->toArray());
+});
+
+Route::get('get_room_orders/{room_id}',function( $room_id ){
+    $room = Room::find(1);
+    $orders = $room->orders;
+    dd($orders->toArray());
 });
