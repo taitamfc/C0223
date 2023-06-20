@@ -198,3 +198,47 @@ Route::get('get_room_orders/{room_id}',function( $room_id ){
     $orders = $room->orders;
     dd($orders->toArray());
 });
+
+
+Route::get('/cart',function(){
+    // $value = $request->session()->get('key');
+    // Lay toan bo session cart
+    $cart = session('cart',[]); //[]
+    
+    $product_ids = array_keys($cart);
+    dd($cart);
+});
+
+Route::get('/addToCart/{id}/{qty?}',function($id,$qty = 1){
+    /*
+    $cart = [
+        10 => 1,
+        15 => 2,
+    ];
+    */
+    $cart = session('cart',[]); //[]
+    if( isset( $cart[$id] ) ){
+        $cart[$id] = $cart[$id] + $qty;
+    }else{
+        $cart[$id] = $qty;
+    }
+    session(['cart' => $cart]);
+});
+
+Route::get('/updateCart/{id}/{qty}',function($id,$qty){
+    //Cap nhat
+    $cart = session('cart',[]); //[]
+    $cart[$id] = $qty;
+    session(['cart' => $cart]);
+});
+
+Route::get('/removeCart/{id}',function($id){
+    //Cap nhat
+    $cart = session('cart',[]); //[]
+    unset( $cart[$id] );
+    session(['cart' => $cart]);
+});
+
+Route::get('/removeAllCart',function(){
+    session()->forget('cart');
+});
