@@ -24,12 +24,16 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $user = new User();
-        $user->username = $request->username;
+        $user->name = $request->name;
         $user->password = $request->password;
+        $user->email = $request->email;
         $user->save();
-        echo '<pre>';
-        print_r( $request->all() );
-        echo '</pre>';
+
+        return response()->json([
+            "success" => true,
+            "message" => "Them thanh cong",
+            "data"    => $user
+        ],201);
     }
 
     /**
@@ -46,7 +50,17 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::find($id);
+        $user->name = $request->name;
+        // $user->password = $request->password;
+        // $user->email = $request->email;
+        $user->save();
+
+        return response()->json([
+            "success" => true,
+            "message" => "Cap nhat thanh cong",
+            "data"    => $user
+        ],201);
     }
 
     /**
@@ -54,6 +68,13 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = User::find($id)->delete();
+        return response()->json([
+            "success" => true,
+            "message" => "Xoa thanh cong",
+            "data"    => $user
+        ],200);
     }
+
+    
 }
