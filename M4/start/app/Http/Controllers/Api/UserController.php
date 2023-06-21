@@ -30,7 +30,8 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $item = User::find($id);
+        return response()->json($item);
     }
 
     /**
