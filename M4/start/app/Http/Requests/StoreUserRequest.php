@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 
 class StoreUserRequest extends FormRequest
 {
@@ -37,5 +39,15 @@ class StoreUserRequest extends FormRequest
             'username.unique' => 'Ten dang nhap da ton tai',
             'username.max' => 'Ky tu ko qua 255',
         ];
+    }
+
+    // Xu ly voi api
+    public function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json([
+            'success'   => false,
+            'message'   => 'Validation errors',
+            'data'      => $validator->errors()
+        ]));
     }
 }

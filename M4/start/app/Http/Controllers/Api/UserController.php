@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUserRequest;
 
 class UserController extends Controller
 {
@@ -20,9 +21,15 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-        //
+        $user = new User();
+        $user->username = $request->username;
+        $user->password = $request->password;
+        $user->save();
+        echo '<pre>';
+        print_r( $request->all() );
+        echo '</pre>';
     }
 
     /**
