@@ -1,0 +1,20 @@
+<script src="./js/jquery-3.7.0.min.js"></script>
+
+<script>
+    $(document).ready( function(){
+        $('#nguoi_dung').change( function(){
+            let nguoi_dung = $(this).val();
+            //..
+        })
+
+    })
+</script>
+
+<select id="nguoi_dung">
+    <option value="">Vui lòng chọn</option>
+    <option value="Hieu">Hieu</option>
+    <option value="Phi">Phi</option>
+</select>
+
+<p id="divHieu" style="display: none;"> Đây là Hiếu </p>
+<p id="divPhi" style="display: none;"> Đây là Phi </p>
