@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <input type="text" name="" id="ten" onkeyup=" xu_ly() ">
+    <p id="demo"></p>
+    <button id="btnHide" > Hide </button>
+    <button id="btnShow" > Show </button>
+    <script>
+        function xu_ly(){
+            // let ten = document.getElementById('ten').value
+            let ten = jQuery('#ten').val()
+            // document.getElementById('demo').innerHTML = ten;
+            jQuery('#demo').html(ten)
+        }
+
+        jQuery('#btnHide').click( function(){
+            jQuery('#demo').hide()
+            // jQuery('#demo').show()
+        })
+
+
+
+    </script>
+    
+</body>
+</html>
