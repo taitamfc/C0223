@@ -1,10 +1,22 @@
 <script src="./js/jquery-3.7.0.min.js"></script>
 <script>
-    
+    $(document).ready(function () {
+        $('#checkAll').click(function () {
+
+            let checkClass = $(this).prop('class')
+            if( checkClass == 'checked'){
+                $('.checkbox').prop('checked',false)
+                $(this).prop('class','')
+            }else{
+                $('.checkbox').prop('checked',true)
+                $(this).prop('class','checked')
+            }
+        })
+    })
 </script>
 
-<button id="checkAll"> CheckAll </button>
+<button id="checkAll" > CheckAll </button>
 <hr>
-Bong da <input type="checkbox" name="" class="checkbox" checked> <br>
+Bong da <input type="checkbox" name="" class="checkbox"> <br>
 Ca hat <input type="checkbox" name="" class="checkbox"> <br>
 An nhau <input type="checkbox" name="" class="checkbox"> <br>
