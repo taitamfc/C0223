@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <form action="">
+        Name: <input type="text" id="name"> <br>
+        Email: <input type="text" id="email"> <br>
+    </form>
+    <button id="btn"> Click me </button>
+    <script>
+        /*
+        - ky thuat lap trinh
+        - giao tiep voi server
+        - cap nhat noi dung ma ko can tai lai trang
+        */ 
+        // document.getElementById('btn').addEventListener('click',function(){
+
+        // })
+
+        function list_users(){
+            let options = {
+                url: 'http://127.0.0.1:8000/api/users',
+                method: 'GET',
+                data: {
+                    limit: 10,
+                    s: 'Nam'
+                },
+                success: function(res){
+                    let html = '';
+                    let users = res;
+                    for (const user of users) {
+                        html += '<tr>';
+                            html += '<td>' + user.id + '</td>';
+                            html += '<td>' + user.name + '</td>';
+                            html += '<td>' + user.email + '</td>';
+                            html += '<tr>';
+                        html += '</tr>';
+                    }
+
+                    // document.getElementById('kq').innerHTML = html
+                    $('#kq').html(html);
+                }
+            }
+
+            $.ajax(options);
+        }
+
+        function add_user(){
+            //#name
+            //#email
+            let nameInput = $('#name').val();
+            let emailInput = $('#email').val();
+
+            let options_2 = {
+                url: 'http://127.0.0.1:8000/api/users',
+                method: 'POST',
+                data: {
+                    name: nameInput,
+                    password: '123',
+                    email: emailInput
+                },
+                success: function(res){
+                    // console.log(res);
+                    // alert('Them thanh cong')
+
+                    list_users()
+                }
+            }
+
+            
+            $.ajax(options_2);
+        }
+
+        $('#btn').click( function(){
+            // var xhttp = new XMLHttpRequest();
+            // xhttp.onreadystatechange = function() {
+            //     if (this.readyState == 4 && this.status == 200) {
+            //         // Xu ly khi goi thanh cong
+            //         let html = '';
+            //         let users = JSON.parse(xhttp.responseText);
+            //         for (const user of users) {
+            //             html += '<tr>';
+            //                 html += '<td>' + user.id + '</td>';
+            //                 html += '<td>' + user.name + '</td>';
+            //                 html += '<td>' + user.email + '</td>';
+            //                 html += '<tr>';
+            //             html += '</tr>';
+            //         }
+
+            //         // document.getElementById('kq').innerHTML = html
+            //         $('#kq').html(html);
+            //     }
+            // };
+            // xhttp.open("GET", "http://127.0.0.1:8000/api/users", true);
+            // xhttp.send();
+
+            add_user();
+        })
+
+
+    </script>
+
+    <table border="1">
+        <thead>
+            <th>id</th>
+            <th>name</th>
+            <th>email</th>
+        </thead>
+        <tbody id="kq">
+           
+        </thead>
+    </table>
+</body>
+</html>
