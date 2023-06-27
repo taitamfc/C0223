@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\App;
 // Admin
 use App\Http\Controllers\Admin\UserController;
 
@@ -241,4 +242,17 @@ Route::get('/removeCart/{id}',function($id){
 
 Route::get('/removeAllCart',function(){
     session()->forget('cart');
+});
+
+Route::get('getMessage',function(){
+    $lang = session()->get('lang','en');
+    App::setLocale($lang);
+    echo '<br>'.__('messages.save_success');
+    echo '<br>'.__('messages.update_success');
+    echo '<br>'.__('messages.delete_success');
+});
+
+Route::get('changeLanguage/{lang}',function($lang){
+    session()->put('lang', $lang);
+    return redirect('/getMessage');
 });

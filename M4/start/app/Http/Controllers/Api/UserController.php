@@ -31,7 +31,7 @@ class UserController extends Controller
 
         return response()->json([
             "success" => true,
-            "message" => "Them thanh cong",
+            "message" => __('messages.save_success'),
             "data"    => $user
         ],201);
     }
@@ -58,7 +58,7 @@ class UserController extends Controller
 
         return response()->json([
             "success" => true,
-            "message" => "Cap nhat thanh cong",
+            "message" => __('messages.update_success'),
             "data"    => $user
         ],201);
     }
@@ -71,7 +71,7 @@ class UserController extends Controller
         $user = User::find($id)->delete();
         return response()->json([
             "success" => true,
-            "message" => "Xoa thanh cong",
+            "message" => __('messages.delete_success'),
             "data"    => $user
         ],200);
     }
