@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\User;
 class UserSeed extends Seeder
 {
     /**
@@ -13,12 +13,14 @@ class UserSeed extends Seeder
      */
     public function run(): void
     {
-        $data = [
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => '123',
-            'birthday' => '2000-12-31'
-        ];
-        DB::table('users')->insert($data);
+        // $data = [
+        //     'name' => 'admin',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => '123',
+        //     'birthday' => '2000-12-31'
+        // ];
+        // DB::table('users')->insert($data);
+
+        User::factory()->count(5)->create();
     }
 }
