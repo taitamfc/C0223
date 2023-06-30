@@ -2,7 +2,7 @@
 namespace App;
 class MayTinh {
     public function cong($a,$b){
-        
+        return $a + $b;
     }
     public function tru($a,$b){
         

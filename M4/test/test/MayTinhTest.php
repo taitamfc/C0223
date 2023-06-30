@@ -9,7 +9,7 @@ class MayTinhTest extends TestCase {
         $b = 3;
 
         $expected_output    = 5;
-        $your_output        = $objMayTinh->sum($a,$b);
+        $your_output        = $objMayTinh->cong($a,$b);
 
         // So sanh bang
         $this->assertEquals($your_output,$expected_output);
