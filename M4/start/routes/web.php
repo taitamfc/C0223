@@ -250,6 +250,8 @@ Route::get('getMessage',function(){
     echo '<br>'.__('messages.save_success');
     echo '<br>'.__('messages.update_success');
     echo '<br>'.__('messages.delete_success');
+    echo '<br>'.trans_choice('messages.apples', 10);
+    echo '<br>'.__('hello');
 });
 
 Route::get('changeLanguage/{lang}',function($lang){

@@ -9,13 +9,21 @@ use Illuminate\Support\Facades\Validator;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Auth;
+
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        Auth::loginUsingId(1);
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+        // $this->authorize('viewAny',User::class);//false => 403, true => 200
+        // dd( __METHOD__ );
         $age    = 18;
         $users  = ['Khuong','Phi','Hieu','Long'];
         $param =[

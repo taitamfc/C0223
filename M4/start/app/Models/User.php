@@ -7,10 +7,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+// use App\Traits\HasPermissions;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+    // use HasPermissions;
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +49,12 @@ class User extends Authenticatable
         // return $this->hasMany( Order::class,'user_id','id');
         return $this->hasMany( Order::class);
     } 
+
+    
+
+    public function group(){
+        return $this->belongsTo(Group::class);
+    }
 
     
 }

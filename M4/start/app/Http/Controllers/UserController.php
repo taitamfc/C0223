@@ -8,6 +8,9 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function index(){
+
+
+        dd( __METHOD__ );
         // $items = User::all();
         $items = [];
         return view('users.index', compact(['items']));
