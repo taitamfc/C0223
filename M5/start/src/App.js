@@ -1,31 +1,28 @@
 import { useEffect, useState } from "react";
 import Form from "./Form";
+import BookList from "./pages/BookList";
+import BookCreate from "./pages/BookCreate";
+import BookEdit from "./pages/BookEdit";
+import BookShow from "./pages/BookShow";
+import BookDelete from "./pages/BookDelete";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-  const [remainingTime, setRemainingTime] = useState(60);
-  const [isStarted, setIsStarted] = useState(false);
 
-  useEffect(() => {
-    let timer;
-    if (isStarted && remainingTime > 0) {
-      timer = setInterval(() => {
-        setRemainingTime(prevTime => prevTime - 1);
-      }, 1000);
-    } else if (remainingTime === 0) {
-      setIsStarted(false);
-    }
-    return () => clearInterval(timer);
-  }, [isStarted, remainingTime]);
-
-  const handleStart = () => {
-    setIsStarted(true);
-  };
-  
   return (
     <div className="App">
-      {/* {remainingTime}
-      <button onClick={handleStart}>Start</button> */}
-      <Form/>
+      <h1>Header</h1>
+      <div className="content">
+        <Routes>
+          <Route path="books" element={<BookList />} />
+          <Route path="books/create" element={<BookCreate />} />
+          <Route path="books/delete/:id" element={<BookDelete />} />
+          <Route path="books/:id/edit" element={<BookEdit />} />
+          <Route path="books/:id" element={<BookShow />} />
+        </Routes>
+      </div>
+      <h1>Footer</h1>
+      
     </div>
   );
 }
