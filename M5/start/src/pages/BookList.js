@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 function BookList(props) {
     const [books,setBooks] = useState([]);
+    useEffect(() => {
+        const books = JSON.parse(localStorage.getItem('books'));
+        if (books) {
+            setBooks(books);
+        }
+    }, []);
 
     return (
         <div>
