@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function BookList(props) {
     const [books,setBooks] = useState([]);
@@ -13,6 +14,7 @@ function BookList(props) {
     return (
         <div>
             <h1>BookList</h1>
+            <Link to="/books/create">Create</Link>
             <table border={1} width={600}>
                 <thead>
                     <tr>
@@ -30,7 +32,8 @@ function BookList(props) {
                                 <th>{ book.name }</th>
                                 <th>{ book.price }</th>
                                 <th>
-                                    
+                                    <Link to={'/books/' + index + '/edit'}> Edit </Link>
+                                    <Link to={'/books/delete/' + index}> Delete </Link>
                                 </th>
                             </tr>
                         ))
