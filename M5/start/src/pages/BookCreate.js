@@ -1,22 +1,36 @@
 import { Field, Form, Formik } from 'formik';
 import React, { useState } from 'react';
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 const SignupSchema = Yup.object().shape({
     name: Yup.string()
-      .required("Required"),
+        .required("Required"),
     price: Yup.string()
-      .required("Required")
-  });
+        .required("Required")
+});
 
 function BookCreate(props) {
-    const [form,setForm] = useState({
+    const navigate = useNavigate()
+    const [form, setForm] = useState({
         name: '',
-        price: 0
+        price: ''
     });
 
     const handleSubmit = (data) => {
+        let books = JSON.parse(localStorage.getItem('books'));
+        if(!books){
+            books = [];
+        }
+        // Dua them phan tu vao mang
+        books.push(data);
 
+        // Luu vao localStorage
+        books = JSON.stringify(books);
+        localStorage.setItem('books', books );
+
+        // Chuyen huong /books
+        navigate('/books')
     }
 
     return (
@@ -29,17 +43,21 @@ function BookCreate(props) {
             >
                 {({ errors, touched }) => (
                     <Form>
-                        <label htmlFor="name">First Name</label>
-                        <Field name="name" />
-                        {errors.name && touched.name ? (
-                            <div>{errors.name}</div>
-                        ) : null}
-                        <label htmlFor="price">Price</label>
+                        <div>
+                            <label htmlFor="name">Name</label>
+                            <Field name="name" />
+                            {errors.name && touched.name ? (
+                                <div>{errors.name}</div>
+                            ) : null}
+                        </div>
+                        <div>
+                            <label htmlFor="price">Price</label>
+                            <Field name="price" />
+                            {errors.price && touched.price ? (
+                                <div>{errors.price}</div>
+                            ) : null}
+                        </div>
 
-                        <Field name="price" />
-                        {errors.price && touched.price ? (
-                            <div>{errors.price}</div>
-                        ) : null}
                         <button type="submit">Submit</button>
                     </Form>
                 )}

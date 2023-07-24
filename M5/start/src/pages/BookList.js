@@ -4,6 +4,7 @@ function BookList(props) {
     const [books,setBooks] = useState([]);
     useEffect(() => {
         const books = JSON.parse(localStorage.getItem('books'));
+        console.log(books);
         if (books) {
             setBooks(books);
         }
@@ -12,26 +13,30 @@ function BookList(props) {
     return (
         <div>
             <h1>BookList</h1>
-            <table border={1}>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Price</th>
-                    <th>Action</th>
-                </tr>
+            <table border={1} width={600}>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        books.map( (book, index) => (
+                            <tr key={index}>
+                                <th>{ index + 1 }</th>
+                                <th>{ book.name }</th>
+                                <th>{ book.price }</th>
+                                <th>
+                                    
+                                </th>
+                            </tr>
+                        ))
+                    }
+                </tbody>
 
-                {
-                    books.map( (book, index) => (
-                        <tr>
-                            <th>{ index }</th>
-                            <th>{ index.name }</th>
-                            <th>{ index.price }</th>
-                            <th>
-                                
-                            </th>
-                        </tr>
-                    ))
-                }
             </table>
         </div>
     );
