@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import BookModel from '../models/BookModel';
 
 function BookList(props) {
     const [books,setBooks] = useState([]);
     useEffect(() => {
-        const books = JSON.parse(localStorage.getItem('books'));
-        console.log(books);
-        if (books) {
-            setBooks(books);
-        }
+        BookModel.all().then( (res) => {
+            setBooks(res);
+        }).catch(err => {
+            throw err;
+        });
     }, []);
 
     return (
@@ -20,7 +21,7 @@ function BookList(props) {
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Price</th>
+                        <th>Phone</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -30,10 +31,11 @@ function BookList(props) {
                             <tr key={index}>
                                 <th>{ index + 1 }</th>
                                 <th>{ book.name }</th>
-                                <th>{ book.price }</th>
+                                <th>{ book.phone }</th>
                                 <th>
-                                    <Link to={'/books/' + index + '/edit'}> Edit </Link>
-                                    <Link to={'/books/delete/' + index}> Delete </Link>
+                                    <Link to={'/books/' + book.id + '/edit'}> Edit </Link>
+                                    <Link to={'/books/' + book.id}> Show </Link>
+                                    <Link to={'/books/delete/' + book.id}> Delete </Link>
                                 </th>
                             </tr>
                         ))
