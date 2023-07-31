@@ -13,6 +13,7 @@ function App() {
     price: 2000
   }]);
 
+
   return (
     <div className="App">
       <h1>Header</h1>

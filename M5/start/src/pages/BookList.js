@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import BookModel from '../models/BookModel';
+import { useDispatch, useSelector } from "react-redux";
+
 
 function BookList(props) {
     const [books,setBooks] = useState([]);
@@ -12,9 +14,14 @@ function BookList(props) {
         });
     }, []);
 
+    const cart = useSelector( state => state.cart )
+    console.log(cart);
+
     return (
         <div>
             <h1>BookList</h1>
+            <h1>{cart[0]}</h1>
+
             <Link to="/books/create">Create</Link>
             <table border={1} width={600}>
                 <thead>
