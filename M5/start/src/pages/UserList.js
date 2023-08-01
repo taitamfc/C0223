@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { FETCH_USERS } from '../redux/action';
+import MasterLayout from '../layouts/MasterLayout';
 
 
 function UserList(props) {
@@ -16,9 +17,10 @@ function UserList(props) {
         })
     },[] )
     return (
-        <div>
+        <MasterLayout>
+            Noi dung trang user
+        </MasterLayout>
             
-        </div>
     );
 }
 
