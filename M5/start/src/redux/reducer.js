@@ -1,7 +1,8 @@
-import {SET_CART,GET_CART} from './action'
+import {SET_CART,SET_USERS} from './action'
 
 const initialState = {
-    cart: ['Van','Su','Dia']
+    cart: ['Van','Su','Dia'],
+    users: []
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -15,6 +16,9 @@ const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET_CART:
             return { ...state, cart: action.payload };
+            break;
+        case SET_USERS:
+            return { ...state, users: action.payload };
             break;
         default:
             return state;

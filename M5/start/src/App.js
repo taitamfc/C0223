@@ -6,20 +6,17 @@ import BookEdit from "./pages/BookEdit";
 import BookShow from "./pages/BookShow";
 import BookDelete from "./pages/BookDelete";
 import { Route, Routes } from "react-router-dom";
+import UserList from "./pages/UserList";
 
 function App() {
-  const [books,setBooks] = useState([{
-    name: 'Iphone',
-    price: 2000
-  }]);
-
-
+ 
   return (
     <div className="App">
       <h1>Header</h1>
       <div className="content">
         <Routes>
-          <Route path="books" element={<BookList books={books} />} />
+          <Route path="/" element={<UserList/>} />
+          <Route path="books" element={<BookList/>} />
           <Route path="books/create" element={<BookCreate />} />
           <Route path="books/delete/:id" element={<BookDelete />} />
           <Route path="books/:id/edit" element={<BookEdit />} />
