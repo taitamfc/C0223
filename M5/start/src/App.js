@@ -12,6 +12,7 @@ function App() {
  
   return (
     <div className="App">
+      <div className="default-value">0</div>
       <div className="content">
         <Routes>
           <Route path="/" element={<UserList/>} />
